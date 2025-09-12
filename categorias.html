@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías - FreshAgain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Títulos de producto más pequeños en los cuadros de selección */
+        .product-title {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="container">
+            ¡Envío gratis en todos los pedidos mayores a $40.000 CLP! Válido hasta el 31/12/2025
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="logo-text">FreshAgain</div>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="action-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos (0)</span>
+                    </div>
+                    <a href="signin.html" class="action-item">
+                        <i class="fas fa-user"></i>
+                        <span>Ingreso</span>
+                    </a>
+                    <div class="action-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito (0)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="categorias.html" class="highlight">Productos</a></li>
+                    <li><a href="#" class="highlight">¡DROPS!</a></li>
+                    <li><a href="#" class="highlight">¡OFERTAS!</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="categories-hero">
+        <div class="container">
+            <h1>Productos</h1>
+        </div>
+    </section>
+    
+    <!-- Layout principal -->
+    <section class="container">
+        <div class="categories-container">
+            <!-- Filtros laterales -->
+            <aside class="filters-sidebar">
+                <div class="filter-section">
+                    <h3>Ordenar por</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="radio" id="recent" name="sort" checked>
+                            <label for="recent">Más recientes</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="price-low" name="sort">
+                            <label for="price-low">Precio: menor a mayor</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="price-high" name="sort">
+                            <label for="price-high">Precio: mayor a menor</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="radio" id="rating" name="sort">
+                            <label for="rating">Mejor valorados</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3>Color</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="black">
+                            <label for="black">Negro</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="white">
+                            <label for="white">Blanco</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="blue">
+                            <label for="blue">Azul</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="red">
+                            <label for="red">Rojo</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="green">
+                            <label for="green">Verde</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3>Talla</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="xs">
+                            <label for="xs">XS</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="s">
+                            <label for="s">S</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="m">
+                            <label for="m">M</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="l">
+                            <label for="l">L</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="xl">
+                            <label for="xl">XL</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-section">
+                    <h3>Marca</h3>
+                    <div class="filter-options">
+                        <div class="filter-option">
+                            <input type="checkbox" id="nike">
+                            <label for="nike">Nike</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="adidas">
+                            <label for="adidas">Adidas</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="puma">
+                            <label for="puma">Puma</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="levis">
+                            <label for="levis">Levi's</label>
+                        </div>
+                        <div class="filter-option">
+                            <input type="checkbox" id="tommy">
+                            <label for="tommy">Tommy Hilfiger</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="filter-btn">Filtrar</button>
+            </aside>
+            
+            <!-- Contenido principal -->
+            <main class="products-main">
+                <div class="products-header">
+                    <div class="products-count">28 Productos</div>
+                    <div class="view-options">
+                        <span>Mostrar</span>
+                        <select>
+                            <option>10 productos</option>
+                            <option>20 productos</option>
+                            <option>30 productos</option>
+                            <option>Todos los productos</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-drops">DROPS</span>
+                            <img src="" alt="Chaquetas vintage">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Chaquetas Vintage</div>
+                            <div class="product-desc">Chaquetas denim únicas de los 90s</div>
+                            <div class="product-meta">
+                                <small>Color: Azul | Talla: M</small>
+                            </div>
+                            <div class="product-price">$24.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-offer">OFERTA</span>
+                            <img src="" alt="Camisetas graphic">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Camisetas Graphic</div>
+                            <div class="product-desc">Camisetas con diseños únicos</div>
+                            <div class="product-meta">
+                                <small>Color: Negro | Talla: L</small>
+                            </div>
+                            <div class="product-price">$15.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="" alt="Pantalones cargo">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Pantalones Cargo</div>
+                            <div class="product-desc">Pantalones cargo militares</div>
+                            <div class="product-meta">
+                                <small>Color: Verde | Talla: M</small>
+                            </div>
+                            <div class="product-price">$29.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-drops">DROPS</span>
+                            <img src="" alt="Zapatos urbanos">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Zapatos Urbanos</div>
+                            <div class="product-desc">Zapatillas y zapatos con estilo</div>
+                            <div class="product-meta">
+                                <small>Color: Blanco | Talla: 42</small>
+                            </div>
+                            <div class="product-price">$34.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-offer">OFERTA</span>
+                            <img src="" alt="Sudadera con capucha">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Sudadera con Capucha</div>
+                            <div class="product-desc">Sudadera cómoda y estilo urbano</div>
+                            <div class="product-meta">
+                                <small>Color: Gris | Talla: XL</small>
+                            </div>
+                            <div class="product-price">$22.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 6 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="" alt="Shorts deportivos">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Shorts Deportivos</div>
+                            <div class="product-desc">Shorts ligeros para deporte</div>
+                            <div class="product-meta">
+                                <small>Color: Azul | Talla: S</small>
+                            </div>
+                            <div class="product-price">$14.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 7 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-drops">DROPS</span>
+                            <img src="" alt="Gorra plana">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Gorra Plana</div>
+                            <div class="product-desc">Gorra estilo urbano con diseño</div>
+                            <div class="product-meta">
+                                <small>Color: Negro | Talla: Única</small>
+                            </div>
+                            <div class="product-price">$12.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 8 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="" alt="Chaqueta de cuero">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Chaqueta de Cuero</div>
+                            <div class="product-desc">Chaqueta de cuero genuino</div>
+                            <div class="product-meta">
+                                <small>Color: Negro | Talla: L</small>
+                            </div>
+                            <div class="product-price">$45.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 9 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-tag tag-offer">OFERTA</span>
+                            <img src="" alt="Polo clásico">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Polo Clásico</div>
+                            <div class="product-desc">Polo de algodón de alta calidad</div>
+                            <div class="product-meta">
+                                <small>Color: Blanco | Talla: M</small>
+                            </div>
+                            <div class="product-price">$18.990</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 10 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="" alt="Falda midi">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Falda Midi</div>
+                            <div class="product-desc">Falda elegante para ocasiones especiales</div>
+                            <div class="product-meta">
+                                <small>Color: Negro | Talla: S</small>
+                            </div>
+                            <div class="product-price">$21.990</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer de productos -->
+                <div class="products-footer">
+                    <div class="viewing-count">Viendo 10 de 28 productos</div>
+                    <button class="show-more">Mostrar más</button>
+                </div>
+            </main>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FreshAgain</h3>
+                    <p>Tu tienda de ropa urbana de segunda mano. Encuentra estilo único mientras contribuyes a un planeta más verde.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="categorias.html">Productos</a></li>
+                        <li><a href="#">Drops</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Envíos y devoluciones</a></li>
+                        <li><a href="#">Guía de tallas</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Santiago</li>
+                        <li><i class="fas fa-phone"></i> +56 9 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> hola@freshagain.cl</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FreshAgain. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

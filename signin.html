@@ -11,7 +11,7 @@
     <!-- Barra superior -->
     <div class="top-bar">
         <div class="container">
-            ¡Envío gratis en todos los pedidos mayores a $50.000!
+            ¡Envío gratis en todos los pedidos mayores a $40.000 CLP! Válido hasta el 31/12/2025
         </div>
     </div>
     
@@ -31,10 +31,10 @@
                         <i class="fas fa-heart"></i>
                         <span>Favoritos (0)</span>
                     </div>
-                    <div class="action-item">
+                    <a href="signin.html" class="action-item">
                         <i class="fas fa-user"></i>
                         <span>Ingreso</span>
-                    </div>
+                    </a>
                     <div class="action-item">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Carrito (0)</span>
@@ -150,27 +150,6 @@
         </div>
     </footer>
 
-    <script>
-        // Validación básica del formulario
-        document.getElementById('signin-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            // Validación simple de campos vacíos
-            if (!email || !password) {
-                alert('Por favor, completa todos los campos');
-                return;
-            }
-            
-            // Aquí iría la lógica para enviar el formulario
-            alert('Inicio de sesión exitoso (simulación)');
-            // Redirección simulada a la página principal
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1000);
-        });
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Producto - FreshAgain</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Títulos de producto más pequeños en los cuadros de selección */
+        .products-grid .product-title {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="container">
+            ¡Envío gratis en todos los pedidos mayores a $40.000 CLP! Válido hasta el 31/12/2025
+        </div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-main">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <div class="logo-text">FreshAgain</div>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="action-item">
+                        <i class="fas fa-heart"></i>
+                        <span>Favoritos (0)</span>
+                    </div>
+                    <a href="signin.html" class="action-item">
+                        <i class="fas fa-user"></i>
+                        <span>Ingreso</span>
+                    </a>
+                    <div class="action-item">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Carrito (0)</span>
+                    </div>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="categorias.html">Productos</a></li>
+                    <li><a href="#" class="highlight">¡DROPS!</a></li>
+                    <li><a href="#" class="highlight">¡OFERTAS!</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Detalle del Producto -->
+    <section class="container">
+        <div class="product-detail-container">
+            <!-- Galería de imágenes -->
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="" alt="Chaqueta vintage denim" id="main-image">
+                </div>
+                <div class="image-thumbnails">
+                    <div class="thumbnail active" data-image="">
+                        <img src="" alt="Miniatura 1">
+                    </div>
+                    <div class="thumbnail" data-image="">
+                        <img src="" alt="Miniatura 2">
+                    </div>
+                    <div class="thumbnail" data-image="">
+                        <img src="" alt="Miniatura 3">
+                    </div>
+                    <div class="thumbnail" data-image="">
+                        <img src="" alt="Miniatura 4">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información del producto -->
+            <div class="product-info">
+                <h1 class="product-title">Chaqueta Vintage Denim Años 90</h1>
+                <div class="product-price">$24.990</div>
+                
+                <p class="product-description">
+                    Chaqueta denim única de los años 90, perfecta para tu estilo urbano. Confeccionada en algodón de alta calidad, esta pieza vintage ofrece un ajuste clásico y un desgaste auténtico que cuenta su propia historia.
+                </p>
+                
+                <div class="product-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Color:</strong> Azul desgastado
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-ruler"></i>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Talla:</strong> M (Mediana)
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Material:</strong> 100% Algodón Denim
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Peso:</strong> 850 gramos
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="feature-text">
+                            <strong>Origen:</strong> Prenda vintage de los años 90
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="availability">
+                    <div class="availability-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="availability-text">
+                        <strong>Disponible:</strong> Prenda única disponible
+                    </div>
+                </div>
+                
+                <div class="shipping-info">
+                    <div class="shipping-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="shipping-text">
+                        <strong>Tiempo estimado de envío:</strong> 2-4 días hábiles
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="btn-add-cart">
+                        <i class="fas fa-shopping-cart"></i> Añadir al carrito
+                    </button>
+                    <button class="btn-favorite">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Productos relacionados -->
+    <section class="container">
+        <div class="related-products">
+            <div class="section-title">
+                <h2>Otros productos que te pueden interesar</h2>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Producto 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag tag-drops">DROPS</span>
+                        <img src="" alt="Camisetas graphic">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Camisetas Graphic</div>
+                        <div class="product-desc">Camisetas con diseños únicos de bandas</div>
+                        <div class="product-price">$15.990</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag tag-offer">OFERTA</span>
+                        <img src="" alt="Pantalones cargo">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Pantalones Cargo</div>
+                        <div class="product-desc">Pantalones cargo militares de los 2000s</div>
+                        <div class="product-price">$29.990</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="" alt="Zapatos urbanos">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Zapatos Urbanos</div>
+                        <div class="product-desc">Zapatillas y zapatos con estilo</div>
+                        <div class="product-price">$34.990</div>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="product-tag tag-offer">OFERTA</span>
+                        <img src="" alt="Sudadera con capucha">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-title">Sudadera con Capucha</div>
+                        <div class="product-desc">Sudadera cómoda y estilo urbano</div>
+                        <div class="product-price">$22.990</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FreshAgain</h3>
+                    <p>Tu tienda de ropa urbana de segunda mano. Encuentra estilo único mientras contribuyes a un planeta más verde.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="categorias.html">Productos</a></li>
+                        <li><a href="#">Drops</a></li>
+                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Ayuda</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Preguntas frecuentes</a></li>
+                        <li><a href="#">Envíos y devoluciones</a></li>
+                        <li><a href="#">Guía de tallas</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Santiago</li>
+                        <li><i class="fas fa-phone"></i> +56 9 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> hola@freshagain.cl</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 FreshAgain. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
