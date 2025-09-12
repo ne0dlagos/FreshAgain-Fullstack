@@ -210,8 +210,17 @@ nav {
 }
 
 .nav-links .highlight {
-    color: #e91e63;
     font-weight: bold;
+}
+
+.nav-links .highlight-drops {
+    font-weight: bold;
+    color: #e91e63;
+}
+
+.nav-links .highlight-ofertas {
+    font-weight: bold;
+    color: #4CAF50;
 }
 
 /* ===== HERO SECTIONS ===== */

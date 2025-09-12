@@ -35,7 +35,7 @@
                 <div class="header-actions">
                     <div class="action-item">
                         <i class="fas fa-heart"></i>
-                        <span>Favoritos (0)</span>
+                        <span>Favoritos (En desarrollo)</span>
                     </div>
                     <a href="signin.html" class="action-item">
                         <i class="fas fa-user"></i>
@@ -43,7 +43,7 @@
                     </a>
                     <div class="action-item">
                         <i class="fas fa-shopping-cart"></i>
-                        <span>Carrito (0)</span>
+                        <span>Carrito (En desarrollo)</span>
                     </div>
                 </div>
             </div>
@@ -51,10 +51,10 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
-                    <li><a href="categorias.html" class="highlight">Productos</a></li>
-                    <li><a href="#" class="highlight">¡DROPS!</a></li>
-                    <li><a href="#" class="highlight">¡OFERTAS!</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="categorias.html">Productos</a></li>
+                    <li><a href="categorias.html?filter=drops" class="highlight-drops" id="nav-drops">¡DROPS!</a></li>
+                    <li><a href="categorias.html?filter=ofertas" class="highlight-ofertas" id="nav-ofertas">¡OFERTAS!</a></li>
+                    <li><a href="">Contacto (En desarrollo)</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,6 +72,13 @@
         <div class="categories-container">
             <!-- Filtros laterales -->
             <aside class="filters-sidebar">
+                <!-- Botones de filtro rápido -->
+                <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+                    <button id="filter-drops" class="btn" style="background:#e91e63;color:white;">¡DROPS!</button>
+                    <button id="filter-offers" class="btn" style="background:#4CAF50;color:white;">¡OFERTA!</button>
+                    <button id="filter-all" class="btn" style="background:#333;color:white;">Ver todos</button>
+                </div>
+                
                 <div class="filter-section">
                     <h3>Ordenar por</h3>
                     <div class="filter-options">
@@ -363,9 +370,8 @@
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>FreshAgain</h3>
-                    <p>Tu tienda de ropa urbana de segunda mano. Encuentra estilo único mientras contribuyes a un planeta más verde.</p>
+                    <p>Tu tienda de ropa urbana de segunda mano. Descubre prendas únicas, con estilo y sostenibles, perfectas para darle nueva vida a tu look. ¡Explora nuestra colección y renueva tu estilo sin dejar huella en el planeta!</p>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Enlaces rápidos</h3>
                     <ul class="footer-links">
@@ -373,37 +379,79 @@
                         <li><a href="categorias.html">Productos</a></li>
                         <li><a href="#">Drops</a></li>
                         <li><a href="#">Ofertas</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="#">Contacto (En desarrollo)</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Ayuda</h3>
                     <ul class="footer-links">
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Envíos y devoluciones</a></li>
-                        <li><a href="#">Guía de tallas</a></li>
-                        <li><a href="#">Política de privacidad</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Preguntas frecuentes (En desarrollo)</a></li>
+                        <li><a href="#">Envíos y devoluciones (En desarrollo)</a></li>
+                        <li><a href="#">Guía de tallas (En desarrollo)</a></li>
+                        <li><a href="#">Política de privacidad (En desarrollo)</a></li>
+                        <li><a href="#">Términos y condiciones (En desarrollo)</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-column">
                     <h3>Contacto</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Siempre Viva 742, Santiago</li>
-                        <li><i class="fas fa-phone"></i> +56 9 1234 5678</li>
-                        <li><i class="fas fa-envelope"></i> hola@freshagain.cl</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Casa Matriz 123, Santiago</li>
+                        <li><i class="fas fa-phone"></i> +56 9 000 000</li>
+                        <li><i class="fas fa-envelope"></i> contacto@freshagain.cl</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2023 FreshAgain. Todos los derechos reservados.</p>
+                <p>&copy; 2025 FreshAgain. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Filtro rápido por DROPS u OFERTAS desde query string
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const filter = urlParams.get('filter');
+            const dropsBtn = document.getElementById('filter-drops');
+            const offersBtn = document.getElementById('filter-offers');
+            const allBtn = document.getElementById('filter-all');
+            const cards = document.querySelectorAll('.products-grid .product-card');
+
+            function showDrops() {
+                cards.forEach(card => {
+                    if (card.querySelector('.tag-drops')) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            function showOffers() {
+                cards.forEach(card => {
+                    if (card.querySelector('.tag-offer')) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+            function showAll() {
+                cards.forEach(card => {
+                    card.style.display = '';
+                });
+            }
+
+            if (dropsBtn && offersBtn && allBtn) {
+                dropsBtn.addEventListener('click', showDrops);
+                offersBtn.addEventListener('click', showOffers);
+                allBtn.addEventListener('click', showAll);
+            }
+
+            // Aplica filtro si viene desde la URL (?filter=drops u ofertas)
+            if (filter === 'drops') showDrops();
+            if (filter === 'ofertas') showOffers();
+        });
+    </script>
 </body>
 </html>

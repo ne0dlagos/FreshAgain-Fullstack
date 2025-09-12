@@ -62,6 +62,89 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Aplicando filtros...');
         });
     }
+
+// ===== categorias.html =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Botón "Mostrar más"
+    const showMore = document.querySelector('.show-more');
+    if (showMore) {
+        showMore.addEventListener('click', function() {
+            alert('Funcionalidad de "Mostrar más" activada. Cargarían más productos en una implementación real.');
+        });
+    }
+
+    // Selector de productos a mostrar
+    const viewSelect = document.querySelector('.view-options select');
+    if (viewSelect) {
+        viewSelect.addEventListener('change', function() {
+            alert('Mostrando ' + this.value);
+        });
+    }
+
+    // Botón de filtro general
+    const filterBtn = document.querySelector('.filter-btn');
+    if (filterBtn) {
+        filterBtn.addEventListener('click', function() {
+            alert('Aplicando filtros...');
+        });
+    }
+
+    // Filtro rápido por DROPS u OFERTAS
+    const dropsBtn = document.getElementById('filter-drops');
+    const offersBtn = document.getElementById('filter-offers');
+    const allBtn = document.getElementById('filter-all');
+    const cards = document.querySelectorAll('.products-grid .product-card');
+
+    // Función para aplicar filtros
+    function aplicarFiltro(tipo) {
+        cards.forEach(card => {
+            if (tipo === 'all') {
+                card.style.display = '';
+            } else if (tipo === 'drops') {
+                card.style.display = card.querySelector('.tag-drops') ? '' : 'none';
+            } else if (tipo === 'ofertas') {
+                card.style.display = card.querySelector('.tag-offer') ? '' : 'none';
+            }
+        });
+    }
+
+    // Event listeners para los botones de filtro
+    if (dropsBtn) {
+        dropsBtn.addEventListener('click', function() {
+            aplicarFiltro('drops');
+        });
+    }
+
+    if (offersBtn) {
+        offersBtn.addEventListener('click', function() {
+            aplicarFiltro('ofertas');
+        });
+    }
+
+    if (allBtn) {
+        allBtn.addEventListener('click', function() {
+            aplicarFiltro('all');
+        });
+    }
+
+    // ✅ NUEVO: Filtro automático desde URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const filter = urlParams.get('filter');
+    
+    if (filter && (filter === 'drops' || filter === 'ofertas')) {
+        // Esperar un momento para asegurar que todo esté cargado
+        setTimeout(() => {
+            aplicarFiltro(filter);
+            
+            // También simular click en el botón correspondiente si existe
+            if (filter === 'drops' && dropsBtn) {
+                dropsBtn.click();
+            } else if (filter === 'ofertas' && offersBtn) {
+                offersBtn.click();
+            }
+        }, 100);
+    }
+});
 });
 
 // ===== signin.html =====
