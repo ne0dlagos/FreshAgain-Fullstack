@@ -954,3 +954,16 @@ footer {
         gap: 15px;
     }
 }
+
+/* Make entire product card clickable without changing styles */
+.product-card .product-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-card .product-link .product-image,
+.product-card .product-link .product-info {
+    /* ensure layout unchanged */
+    display: block;
+}
