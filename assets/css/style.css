@@ -389,6 +389,164 @@ footer {
     font-size: 0.9rem;
     color: #ccc;
 }
+/* Estilos específicos para la página de registro */
+.signup-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.signup-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.signup-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.signup-form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.signup-form h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.btn-google {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    background-color: #4285F4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-google:hover {
+    background-color: #357ae8;
+}
+
+.btn-google i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.divider {
+    text-align: center;
+    position: relative;
+    margin: 20px 0;
+    color: #777;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 42%;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #3d8b40;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+.form-footer a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+.terms {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+    margin-top: 15px;
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
