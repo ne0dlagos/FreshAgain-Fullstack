@@ -1,185 +1,128 @@
-// ===== index.html =====
-console.log("Página de FreshAgain cargada correctamente");
+// Centralized, cleaned JS for the site
 
-// ===== detalle-producto.html =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Miniaturas de imágenes
-    if (document.querySelectorAll('.thumbnail').length) {
-        document.querySelectorAll('.thumbnail').forEach(thumbnail => {
-            thumbnail.addEventListener('click', function() {
-                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                const newImage = this.getAttribute('data-image');
-                document.getElementById('main-image').src = newImage;
-            });
-        });
-    }
+document.addEventListener('DOMContentLoaded', () => {
+	// Mensaje básico
+	console.log('Página de FreshAgain cargada correctamente');
 
-    // Botón añadir al carrito
-    const btnAddCart = document.querySelector('.btn-add-cart');
-    if (btnAddCart) {
-        btnAddCart.addEventListener('click', function() {
-            alert('Producto añadido al carrito (simulación)');
-        });
-    }
+	// ===== detalle-producto.html =====
+	(function initProductDetail() {
+		const thumbnails = document.querySelectorAll('.thumbnail');
+		const mainImg = document.getElementById('main-image');
+		if (thumbnails.length && mainImg) {
+			thumbnails.forEach(t => t.addEventListener('click', function () {
+				thumbnails.forEach(x => x.classList.remove('active'));
+				this.classList.add('active');
+				const newImage = this.getAttribute('data-image') || '';
+				if (newImage) mainImg.src = newImage;
+			}));
+		}
 
-    // Botón favoritos
-    const btnFavorite = document.querySelector('.btn-favorite');
-    if (btnFavorite) {
-        btnFavorite.addEventListener('click', function() {
-            this.classList.toggle('active');
-            if (this.classList.contains('active')) {
-                alert('Producto añadido a favoritos');
-            } else {
-                alert('Producto removido de favoritos');
-            }
-        });
-    }
-});
+		const btnAddCart = document.querySelector('.btn-add-cart');
+		if (btnAddCart) btnAddCart.addEventListener('click', () => {
+			alert('Producto añadido al carrito (simulación)');
+		});
 
-// ===== categorias.html =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Botón "Mostrar más"
-    const showMore = document.querySelector('.show-more');
-    if (showMore) {
-        showMore.addEventListener('click', function() {
-            alert('Funcionalidad de "Mostrar más" activada. Cargarían más productos en una implementación real.');
-        });
-    }
+		const btnFavorite = document.querySelector('.btn-favorite');
+		if (btnFavorite) btnFavorite.addEventListener('click', function () {
+			this.classList.toggle('active');
+			alert(this.classList.contains('active') ? 'Producto añadido a favoritos' : 'Producto removido de favoritos');
+		});
+	})();
 
-    // Selector de productos a mostrar
-    const viewSelect = document.querySelector('.view-options select');
-    if (viewSelect) {
-        viewSelect.addEventListener('change', function() {
-            alert('Mostrando ' + this.value);
-        });
-    }
+	// ===== categorias.html =====
+	(function initCategoriasFilter() {
+		// Detectar si la página tiene grid de productos
+		const productsGrid = document.querySelector('.products-grid');
+		if (!productsGrid) return;
 
-    // Botón de filtro
-    const filterBtn = document.querySelector('.filter-btn');
-    if (filterBtn) {
-        filterBtn.addEventListener('click', function() {
-            alert('Aplicando filtros...');
-        });
-    }
+		const dropsBtn = document.getElementById('filter-drops');
+		const offersBtn = document.getElementById('filter-offers');
+		const allBtn = document.getElementById('filter-all');
+		const cards = Array.from(document.querySelectorAll('.products-grid .product-card'));
 
-// ===== categorias.html =====
-document.addEventListener('DOMContentLoaded', function() {
-    // Botón "Mostrar más"
-    const showMore = document.querySelector('.show-more');
-    if (showMore) {
-        showMore.addEventListener('click', function() {
-            alert('Funcionalidad de "Mostrar más" activada. Cargarían más productos en una implementación real.');
-        });
-    }
+		// if no product cards, nothing to do
+		if (!cards.length) return;
 
-    // Selector de productos a mostrar
-    const viewSelect = document.querySelector('.view-options select');
-    if (viewSelect) {
-        viewSelect.addEventListener('change', function() {
-            alert('Mostrando ' + this.value);
-        });
-    }
+		function aplicarFiltro(tipo) {
+			// tipo: 'all' | 'drops' | 'ofertas'
+			cards.forEach(card => {
+				if (tipo === 'all') {
+					card.style.display = '';
+				} else if (tipo === 'drops') {
+					card.style.display = card.querySelector('.tag-drops') ? '' : 'none';
+				} else if (tipo === 'ofertas') {
+					card.style.display = card.querySelector('.tag-offer') ? '' : 'none';
+				}
+			});
+			// actualizar estado visual en botones (opcional)
+			[dropsBtn, offersBtn, allBtn].forEach(b => b && b.classList.remove('active'));
+			if (tipo === 'drops' && dropsBtn) dropsBtn.classList.add('active');
+			if (tipo === 'ofertas' && offersBtn) offersBtn.classList.add('active');
+			if (tipo === 'all' && allBtn) allBtn.classList.add('active');
+		}
 
-    // Botón de filtro general
-    const filterBtn = document.querySelector('.filter-btn');
-    if (filterBtn) {
-        filterBtn.addEventListener('click', function() {
-            alert('Aplicando filtros...');
-        });
-    }
+		if (dropsBtn) dropsBtn.addEventListener('click', () => aplicarFiltro('drops'));
+		if (offersBtn) offersBtn.addEventListener('click', () => aplicarFiltro('ofertas'));
+		if (allBtn) allBtn.addEventListener('click', () => aplicarFiltro('all'));
 
-    // Filtro rápido por DROPS u OFERTAS
-    const dropsBtn = document.getElementById('filter-drops');
-    const offersBtn = document.getElementById('filter-offers');
-    const allBtn = document.getElementById('filter-all');
-    const cards = document.querySelectorAll('.products-grid .product-card');
+		// Aplicar filtro si viene por query string (?filter=drops o ?filter=ofertas)
+		const params = new URLSearchParams(window.location.search);
+		const q = (params.get('filter') || '').toLowerCase();
+		if (q === 'drops' || q === 'ofertas') {
+			// corto delay para asegurar render inicial
+			setTimeout(() => aplicarFiltro(q === 'drops' ? 'drops' : 'ofertas'), 20);
+		}
+	})();
 
-    // Función para aplicar filtros
-    function aplicarFiltro(tipo) {
-        cards.forEach(card => {
-            if (tipo === 'all') {
-                card.style.display = '';
-            } else if (tipo === 'drops') {
-                card.style.display = card.querySelector('.tag-drops') ? '' : 'none';
-            } else if (tipo === 'ofertas') {
-                card.style.display = card.querySelector('.tag-offer') ? '' : 'none';
-            }
-        });
-    }
+	// ===== UI generales =====
+	(function initGeneralUI() {
+		const showMore = document.querySelector('.show-more');
+		if (showMore) showMore.addEventListener('click', () => {
+			alert('Funcionalidad de "Mostrar más" activada. Cargarían más productos en una implementación real.');
+		});
 
-    // Event listeners para los botones de filtro
-    if (dropsBtn) {
-        dropsBtn.addEventListener('click', function() {
-            aplicarFiltro('drops');
-        });
-    }
+		const viewSelect = document.querySelector('.view-options select');
+		if (viewSelect) viewSelect.addEventListener('change', function () {
+			alert('Mostrando ' + this.value);
+		});
 
-    if (offersBtn) {
-        offersBtn.addEventListener('click', function() {
-            aplicarFiltro('ofertas');
-        });
-    }
+		const filterBtn = document.querySelector('.filter-btn');
+		if (filterBtn) filterBtn.addEventListener('click', () => {
+			alert('Aplicando filtros...');
+		});
+	})();
 
-    if (allBtn) {
-        allBtn.addEventListener('click', function() {
-            aplicarFiltro('all');
-        });
-    }
+	// ===== signin.html =====
+	(function initSignin() {
+		const signinForm = document.getElementById('signin-form');
+		if (!signinForm) return;
+		signinForm.addEventListener('submit', function (e) {
+			e.preventDefault();
+			const email = document.getElementById('email').value;
+			const password = document.getElementById('password').value;
+			if (!email || !password) {
+				alert('Por favor, completa todos los campos');
+				return;
+			}
+			alert('Inicio de sesión exitoso (simulación)');
+			setTimeout(() => { window.location.href = 'index.html'; }, 800);
+		});
+	})();
 
-    // ✅ NUEVO: Filtro automático desde URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const filter = urlParams.get('filter');
-    
-    if (filter && (filter === 'drops' || filter === 'ofertas')) {
-        // Esperar un momento para asegurar que todo esté cargado
-        setTimeout(() => {
-            aplicarFiltro(filter);
-            
-            // También simular click en el botón correspondiente si existe
-            if (filter === 'drops' && dropsBtn) {
-                dropsBtn.click();
-            } else if (filter === 'ofertas' && offersBtn) {
-                offersBtn.click();
-            }
-        }, 100);
-    }
-});
-});
+	// ===== signup.html =====
+	(function initSignup() {
+		const signupForm = document.getElementById('signup-form');
+		if (!signupForm) return;
+		signupForm.addEventListener('submit', function (e) {
+			e.preventDefault();
+			const password = document.getElementById('password').value;
+			const confirmPassword = document.getElementById('confirm-password').value;
+			if (password !== confirmPassword) {
+				alert('Las contraseñas no coinciden');
+				return;
+			}
+			alert('Cuenta creada con éxito (simulación)');
+		});
+	})();
 
-// ===== signin.html =====
-document.addEventListener('DOMContentLoaded', function() {
-    const signinForm = document.getElementById('signin-form');
-    if (signinForm) {
-        signinForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            if (!email || !password) {
-                alert('Por favor, completa todos los campos');
-                return;
-            }
-            alert('Inicio de sesión exitoso (simulación)');
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1000);
-        });
-    }
-});
-
-// ===== signup.html =====
-document.addEventListener('DOMContentLoaded', function() {
-    const signupForm = document.getElementById('signup-form');
-    if (signupForm) {
-        signupForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-            if (password !== confirmPassword) {
-                alert('Las contraseñas no coinciden');
-                return;
-            }
-            alert('Cuenta creada con éxito (simulación)');
-        });
-    }
 });

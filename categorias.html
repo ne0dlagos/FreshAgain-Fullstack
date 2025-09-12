@@ -54,7 +54,7 @@
                     <li><a href="categorias.html">Productos</a></li>
                     <li><a href="categorias.html?filter=drops" class="highlight-drops" id="nav-drops">¡DROPS!</a></li>
                     <li><a href="categorias.html?filter=ofertas" class="highlight-ofertas" id="nav-ofertas">¡OFERTAS!</a></li>
-                    <li><a href="">Contacto (En desarrollo)</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
                 </ul>
             </nav>
         </div>
@@ -407,51 +407,7 @@
         </div>
     </footer>
 
+    <!-- sólo referencia al script externo; sin scripts embebidos -->
     <script src="assets/js/script.js"></script>
-    <script>
-        // Filtro rápido por DROPS u OFERTAS desde query string
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const filter = urlParams.get('filter');
-            const dropsBtn = document.getElementById('filter-drops');
-            const offersBtn = document.getElementById('filter-offers');
-            const allBtn = document.getElementById('filter-all');
-            const cards = document.querySelectorAll('.products-grid .product-card');
-
-            function showDrops() {
-                cards.forEach(card => {
-                    if (card.querySelector('.tag-drops')) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-            function showOffers() {
-                cards.forEach(card => {
-                    if (card.querySelector('.tag-offer')) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            }
-            function showAll() {
-                cards.forEach(card => {
-                    card.style.display = '';
-                });
-            }
-
-            if (dropsBtn && offersBtn && allBtn) {
-                dropsBtn.addEventListener('click', showDrops);
-                offersBtn.addEventListener('click', showOffers);
-                allBtn.addEventListener('click', showAll);
-            }
-
-            // Aplica filtro si viene desde la URL (?filter=drops u ofertas)
-            if (filter === 'drops') showDrops();
-            if (filter === 'ofertas') showOffers();
-        });
-    </script>
 </body>
 </html>
